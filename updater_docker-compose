@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo -e "Quelle est la version de docker compose à installer ?"
+read VERSION
+echo " "
+sleep 2
+echo "Lancement du téléchargement ..."
+curl -L "https://github.com/docker/compose/releases/download/v$VERSION/docker-compose-$(uname -s)-$(uname -m)" -o ./docker-compose
+sleep 2
+echo "Rendre le script exécutable"
+chmod +x ${CHEMIN}
+sleep 2
+echo "Validation de l'installation par l'affichage de la version installée :"
+docker-compose version
